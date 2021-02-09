@@ -410,7 +410,7 @@ VescPacketSetCurrentBrake::VescPacketSetCurrentBrake(double current_brake)
  **/
 VescPacketSetRPM::VescPacketSetRPM(double getRpm) : VescPacket("SetRPM", 5, COMM_SET_RPM)
 {
-  uint32_t v = static_cast<uint32_t>(getRpm);
+  int32_t v = static_cast<int32_t>(getRpm);
 
   *(payload_end_.first + 1) = static_cast<uint8_t>((v >> 24) & 0xFF);
   *(payload_end_.first + 2) = static_cast<uint8_t>((v >> 16) & 0xFF);
